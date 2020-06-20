@@ -1,0 +1,67 @@
+{# Display a sidebar menu item #}
+{% macro sidebarMenuItem(link, pageUrl, type, title) %}
+  <a href="{{ link }}" class="list-group-item list-group-item-action {{ " active" if link == pageUrl }} inv-section-menu__item inv-section-menu__item-{{ type }}">
+    {{ title }}
+  </a>
+{% endmacro %}
+
+{% macro screenshotImage(screenshot, link) %}
+  <a href="{{ link | url }}">
+    <img class="img-fluid" src="{{ site.baseImageUrl }}{{ screenshot.image }}" title="More screenshots" alt="{{ screenshot.alt }}" />
+  </a>
+{% endmacro %}
+
+{% macro screenshotBlock(screenshot) %}
+<li class="row inv-content-section">
+  <div class="col-3">
+    <a href="{{ site.baseImageUrl }}{{ screenshot.image }}" target="_blank">
+      <img class="img-fluid" src="{{ site.baseImageUrl }}{{ screenshot.image }}" title="Click to see full image" alt="{{ screenshot.alt }}" />
+    </a>
+  </div>
+  <div class="col-9">
+    {{ screenshot.details | safe }}
+  </div>
+</li>
+{% endmacro %}
+
+{% macro reviewBlock(review) %}
+  <li class="row border-bottom mb-4">
+    <div class="col-2 text-center">
+      <img class="img-fluid" src="{{ site.baseImageUrl }}{{ review.image }}" alt="{{ review.title }}">
+    </div>
+    <div class="col">
+      <h3>{{ review.title }}</h3>
+
+      <blockquote class="blockquote font-weight-light font-italic">
+        <p>&ldquo;{{ review.quote | safe }}&rdquo;</p>
+      </blockquote>
+
+      {% if review.link %}
+        <p><a href="{{ review.link }}" target="_blank">Read More</a></p>
+      {% endif %}
+    </div>
+  </li>
+{% endmacro %}
+
+{% macro testimonialBlock(testimonial) %}
+  <li class="inv-list-item mb-0">
+    {# Testimonial title #}
+    {% if testimonial.title %}
+      <h2 class="h4">{{ testimonial.title }}</h2>
+    {% endif %}
+
+    {# Testimonial (block)quote #}
+    {% if testimonial.quote %}
+      <blockquote class="blockquote font-weight-light font-italic">
+        <p>"{{ testimonial.quote | safe }}"</p>
+      </blockquote>
+    {% endif %}
+
+    {# Testimonial more link #}
+    {% if testimonial.moreUrl %}
+      <p>
+        <a href="{{ testimonial.moreUrl }}">Read More</a>
+      </p>
+    {% endif %}
+  </li>
+{% endmacro %}

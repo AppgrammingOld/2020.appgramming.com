@@ -1,0 +1,10 @@
+{% from "blocks/pages.njk" import sidebarMenuItem with context %}
+
+<div class="list-group list-group-flush">
+    {{ sidebarMenuItem("/diskspaceexplorer/",               page.url, "overview",       "Overview") }}
+    {{ sidebarMenuItem("/diskspaceexplorer/info/",          page.url, "info",           "Product Info") }}
+    {{ sidebarMenuItem("/diskspaceexplorer/screenshots/",   page.url, "screenshots",    "Screenshots") }}
+    {{ sidebarMenuItem("/diskspaceexplorer/reviews/",       page.url, "reviews",        "Reviews & Awards") }}
+    {{ sidebarMenuItem("/diskspaceexplorer/testimonials/",  page.url, "testimonials",   "Testimonials") }}
+    {{ sidebarMenuItem("/diskspaceexplorer/download/",      page.url, "download",       "Download") }}
+</div>

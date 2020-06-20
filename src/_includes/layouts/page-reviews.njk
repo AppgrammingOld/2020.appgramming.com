@@ -1,0 +1,13 @@
+---
+layout: layouts/page-left-sidebar.njk
+---
+
+{% from "blocks/pages.njk" import reviewBlock with context %}
+
+{{ content | safe }}
+
+<ul class="list-unstyled">
+  {% for review in products[product].reviews %}
+    {{ reviewBlock(review) }}
+  {% endfor %}
+</ul>

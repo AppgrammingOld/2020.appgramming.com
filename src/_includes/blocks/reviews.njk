@@ -1,0 +1,40 @@
+{% macro reviewsSwiper(reviews) %}
+  <div class="swiper-js-container">
+    <div class="swiper-container" data-swiper-items="1" data-swiper-space-between="0">
+      <div class="swiper-wrapper">
+        {% for review in reviews %}
+          <div class="swiper-slide">
+            <div class="text-center">
+              <p class="h4 lh-180 px-4 font-weight-300">
+                "{{ review.quote | safe }}"
+              </p>
+              <div class="text-center mt-4">
+                <span class="h6 font-weight-light">{{ review.byName }}</span>
+                <span class="h6 text-muted">-
+                  {{ review.byOrg }}</span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <!-- Add Arrows -->
+    <div class="swiper-button swiper-button-next btn-dark zindex-101"></div>
+    <div class="swiper-button swiper-button-prev btn-dark zindex-101"></div>
+  </div>
+{% endmacro %}
+
+{% macro reviewsSwiperSlice(reviews) %}
+  <section class="slice slice-lg delimiter-bottom">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="text-center mb-5">
+            <span class="badge badge-lg badge-warning badge-pill">Reviews</span>
+          </div>
+          {{ reviewsSwiper(reviews) }}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endmacro %}

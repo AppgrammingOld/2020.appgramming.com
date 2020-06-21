@@ -2,6 +2,7 @@
 ---
 
 {% from "blocks/pages.njk" import featureCard with context %}
+{% from "blocks/reviews.njk" import reviewsSwiperSlice with context %}
 
 <!-- Main content -->
 <section class="slice slice-lg bg-primary">
@@ -171,7 +172,8 @@
 </section>
 
 
-<section class="slice slice-lg delimiter-bottom">
+<!-- <section class="slice slice-lg delimiter-bottom"> -->
+<section class="slice slice-lg">
   <div class="container">
       <!-- <div class="row">
           <div class="col-lg-6 col-md-10">
@@ -213,3 +215,9 @@
       </div>
   </div>
 </section>
+
+{% set reviews = [
+  { byName: "Waqas Ahmed", byOrg: "AddictiveTips", quote: "Recently I stumbled upon a great software labeled LoneColor .... LoneColor boasts what could appropriately be called a zero interface. ... In a nutshell, it's a very simple and <strong>unique</strong> app." },
+  { byName: "Francisco Martínez", byOrg: "Software Informer", quote: "Very few free, small, and simple apps are really worth downloading, let alone installing and keeping them in your desktop for longer than it takes to uninstall them. ... LoneColor is one of those few apps." }
+] %}
+{{ reviewsSwiperSlice(reviews) }}

@@ -1,6 +1,8 @@
 ---
 ---
 
+{% from "blocks/pages.njk" import featureCard with context %}
+
 <!-- Main content -->
 <section class="slice slice-lg bg-primary">
   <div data-offset-top="#navbar-main">
@@ -18,7 +20,7 @@
             <p class="lead text-white opacity-8">
               <!-- Build a beautiful, modern website with flexible Bootstrap components built from scratch. -->
               <!-- Rename "LoneColor" to "LoneColor Pink", run and get a Pink Desktop wallpaper! Or run as it is, and get a beautiful random color wallpaper. -->
-              Set any solid color you like as your Desktop wallpaper, or get surprised with a beautiful random color wallpaper.
+              Set any color you like as your Desktop wallpaper, or get surprised with a beautiful random color wallpaper.
             </p>
             <!-- Buttons -->
             <div class="mt-5">
@@ -30,13 +32,28 @@
             </div>
             <!-- Clients -->
             <div class="d-flex align-items-center justify-content-center justify-content-lg-left mt-5">
-              <!-- <div class="col-auto text-sm text-white pl-0 pr-4">Trusted by:</div> -->
-              <!-- <div class="col client-group ">
+              <div class="col-auto text-sm text-white pl-0 pr-4">Reviewed by:</div>
+              <div class="col client-group ">
                 <div class="row justify-content-center">
                   <div class="client col-3 py-3">
-                    <img alt="Image placeholder" src="../../assets/img/clients/svg/google-white.svg">
+                    <img alt="Tech Advisor" src="/assets/img/third/reviews/t/techadvisor/techadvisor-white.svg">
                   </div>
                   <div class="client col-3 py-3">
+                    <img alt="Web User Magazine" src="/assets/img/third/reviews/w/webuser/webuser-white.png">
+                  </div>
+                  {# <div class="client col-3 py-3">
+                    <img alt="Software Informer" src="/assets/img/third/reviews/s/software-informer/software-informer-white.svg">
+                  </div> #}
+                  <div class="client col-3 py-3">
+                    {# <img class="img-fluid" alt="AddictiveTips" src="/assets/img/third/reviews/a/addictivetips/addictivetips-white.svg"> #}
+                    <img alt="AddictiveTips" src="/assets/img/third/reviews/a/addictivetips/addictivetips-white.svg">
+                  </div>
+                  <div class="client col-3 py-3">
+                    <img alt="Softpedia" src="/assets/img/third/reviews/s/softpedia/softpedia-white.svg">
+                  </div>
+
+                  
+                  {# <div class="client col-3 py-3">
                     <img alt="Image placeholder" src="../../assets/img/clients/svg/spotify-white.svg">
                   </div>
                   <div class="client col-3 py-3">
@@ -44,9 +61,9 @@
                   </div>
                   <div class="client col-3 py-3">
                     <img alt="Image placeholder" src="../../assets/img/clients/svg/paypal-white.svg">
-                  </div>
+                  </div> #}
                 </div>
-              </div> -->
+              </div>
             </div>
           </div>
           <div class="col-lg-6 col-xl-5 col-sm-8 ml-auto mr-auto mr-lg-0">
@@ -163,51 +180,36 @@
           </div>
       </div> -->
       <div class="row">
-          <div class="col-lg-4 col-sm-6 mb-lg-0">
-              <div class="card hover-translate-y-n10 hover-shadow-lg">
-                  <div class="card-body">
-                      <!-- <div class="pb-4">
-                          <img alt="Image placeholder" src="../../assets/img/svg/icons/Code.svg" class="svg-inject" style="height: 50px; width: 50px;">
-                      </div> -->
-                      <div class="pt-2 pb-3">
-                          <h5>Color wallpapers</h5>
-                          <p class="text-muted mb-0">
-                            Solid color wallpapers may be a welcome, refreshing and modern change from the traditional photo wallpapers. They also free up valuable memory and make PCs run faster. Use LoneColor to try one on your Desktop.
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-              <div class="card hover-translate-y-n10 hover-shadow-lg mb-lg-0">
-                  <div class="card-body">
-                      <!-- <div class="pb-4">
-                          <img alt="Image placeholder" src="../../assets/img/svg/icons/Cog_Wheels.svg" class="svg-inject" style="height: 50px; width: 50px;">
-                      </div> -->
-                      <div class="pt-2 pb-3">
-                          <h5>Just one click</h5>
-                          <p class="text-muted mb-0">
-                            LoneColor is very easy to use: simply drop the program or its shortcut on your Desktop and double-click it to get a random color wallpaper. Or rename "LoneColor" to "LoneColor Pink", and run it to get a Pink wallpaper.
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-              <div class="card hover-translate-y-n10 hover-shadow-lg mb-lg-0">
-                  <div class="card-body">
-                      <!-- <div class="pb-4">
-                          <img alt="Image placeholder" src="../../assets/img/svg/icons/Charts_2.svg" class="svg-inject" style="height: 50px; width: 50px;">
-                      </div> -->
-                      <div class="pt-2 pb-3">
-                          <h5>No user interface</h5>
-                          <p class="text-muted mb-0">
-                            LoneColor has a minimal design and no user interface! To specify the color you want to use, just add its name or code to the program name. It's like using command line parameters, but a lot easier. And less technical.
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </div>
+          {{ featureCard(
+            heading = "Color wallpapers", 
+            text = "Solid color wallpapers may be a welcome, refreshing and modern change from the traditional photo wallpapers. They also free up valuable memory and make PCs run faster. Use LoneColor to try one on your Desktop.",
+            icon = "color_lens-white-18dp.svg"
+          ) }}
+          {{ featureCard(
+            heading = "Just one click", 
+            text = 'LoneColor is very easy to use: simply drop the program or its shortcut on your Desktop and double-click it to get a random color wallpaper. Or rename "LoneColor" to "LoneColor Pink", and run it to get a Pink wallpaper.',
+            icon = "mouse-white-18dp.svg"
+          ) }}
+          {{ featureCard(
+            heading = "Zero interface", 
+            text = "LoneColor has a minimal design and no user interface! To specify the color you want to use, just add its name or code to the program name. It's like using command line parameters, but a lot easier. And less technical.",
+            icon = "exposure_zero-white-18dp.svg"
+          ) }}
+          {{ featureCard(
+            heading = "Clipboard talk", 
+            text = "As a zero interface app, LoneColor has no windows! So it talks to the user using the... Clipboard. It writes the color code of your wallpaper, or any error messages, to the Clipboard. To see them, paste anywhere.",
+            icon = "content_paste-white-18dp.svg"
+          ) }}
+          {{ featureCard(
+            heading = "Works anywhere", 
+            text = "If you are using a notebook and running a Starter Edition of Windows, you are stuck with the default wallpaper. There is no option to change it. LoneColor can help you set a fast and clean solid color wallpaper.",
+            icon = "laptop_windows-white-18dp.svg"
+          ) }}
+          {{ featureCard(
+            heading = "Easy to go back", 
+            text = 'Want to restore your old photo wallpaper? Rename "LoneColor" to "LoneColor C" (or create a "LoneColor C" shortcut), and run it to open the Desktop Background Control Panel, where you can easily undo changes.',
+            icon = "restore-white-18dp.svg"
+          ) }}
       </div>
   </div>
 </section>

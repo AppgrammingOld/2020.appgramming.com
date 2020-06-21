@@ -1,3 +1,29 @@
+
+{% macro featureCard(heading, text, icon) %}
+  <div class="col-lg-4 col-sm-6">
+      <div class="card hover-translate-y-n10 hover-shadow-lg">
+          <div class="card-body">
+              <div class="pb-4">
+                  <div class="icon bg-dark text-white rounded-circle icon-shape shadow">
+                    <img alt="{{ heading }}" src="/assets/img/content/icons/{{ icon }}">
+                  </div>
+              </div>          
+              <!-- <div class="pb-4">
+                  <img alt="Image placeholder" src="../../assets/img/svg/icons/Cog_Wheels.svg" class="svg-inject" style="height: 50px; width: 50px;">
+              </div> -->
+              <div class="pt-2 pb-3">
+                  <h5>{{ heading }}</h5>
+                  <p class="text-muted mb-0">
+                    {{ text | safe }}
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+{% endmacro %}
+
+
+
 {# Display a sidebar menu item #}
 {% macro sidebarMenuItem(link, pageUrl, type, title) %}
   <a href="{{ link }}" class="list-group-item list-group-item-action {{ " active" if link == pageUrl }} inv-section-menu__item inv-section-menu__item-{{ type }}">
